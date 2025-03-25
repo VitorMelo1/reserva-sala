@@ -1,0 +1,12 @@
+@use "./variables" as *;
+@mixin flex-center($flex-direction: column, $justify-content: center ,$align-items: center) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction: $flex-direction;
+  }
+@mixin border($padding: 10px,$border-radius: 5px) {
+    border: 1px solid $color_border;
+    padding: $padding;
+    border-radius: $border-radius;
+  }

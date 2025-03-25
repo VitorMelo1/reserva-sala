@@ -1,0 +1,210 @@
+@use "../../styles/global.scss" as *;
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $backgraund_color_Light;
+    padding: 20px;
+}
+.error {
+    color: red;
+    font-size: 18px;
+    margin-top: 5px;
+    font-weight: bold
+}
+.login_page{
+    @include flex-center;
+}
+.login_container {
+    @include flex-center(column, center, center);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background: $backgraund_color_Light;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+
+    h1 {
+        font-size: 24px;
+        color: $primary_color;
+        margin-bottom: 20px;
+    }
+}
+
+.form_Grup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.email_grup,
+.password_grup {
+    position: relative;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 0;
+    border-bottom: 2px solid $color_border;
+    
+    outline: none;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+    color: $Color_text_dark;
+
+    &:focus {
+        border-color: $primary_color;
+    }
+}
+
+label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s ease-in-out;
+    color: #888;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+    top: 5px;
+    font-size: 12px;
+    color: $primary_color;
+}
+
+.button_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    background: $primary_color;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        background: darken($primary_color, 10%);
+    }
+}
+
+/* Responsividade */
+
+/* Telas muito pequenas (celulares) */
+@media (max-width: 480px) {
+    .login_container {
+        padding: 30px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* Tablets e laptops pequenos (até 768px) */
+@media (max-width: 768px) {
+    .login_container {
+        padding: 35px;
+        max-width: 80%;
+    }
+
+    input {
+        font-size: 15px;
+        padding: 11px;
+    }
+
+    label {
+        font-size: 15px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 11px;
+    }
+}
+
+/* **Novidade: Layout expansível para telas grandes** */
+@media (min-width: 1200px) {
+    .login_container {
+        max-width: 600px;
+        padding: 50px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    input {
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 14px;
+    }
+}
+
+/* **Telas ultra grandes (4K)** */
+@media (min-width: 1600px) {
+    .login_container {
+        max-width: 800px;
+        padding: 60px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    input {
+        font-size: 20px;
+        padding: 16px;
+    }
+
+    label {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 20px;
+        padding: 16px;
+    }
+}

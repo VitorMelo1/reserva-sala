@@ -1,0 +1,13 @@
+@use "reset";
+@use "./variables.scss" as *;
+@use "./mixins.scss" as *;
+
+body{
+    font-family: $font_family_primary;
+    background-color: $backgraund_color_Light;
+    color:$Color_text_dark;
+}
+.form_Grup {
+    @include flex-center;
+    gap: 10px;
+    margin-bottom: 15px;}
