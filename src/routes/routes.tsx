@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "../pages/Login/Login"; 
-import Dashboard from "../pages/Dashboard/Dashboard"; 
+import Dashboard from "../pages/Dashboard/Dashboard";
+import Relatorio from "../pages/Relatorios/Relatorios.tsx";
+import Reservas from "../pages/Reserva/Reserva.tsx";  
+import PageLayout from "../layouts/MainLayout/MainLayout"; 
 import ProtectedRoute from "./ProtectedRoute"; // Importando a proteção de rota
 
 const AppRoutes = () => {
@@ -13,9 +16,14 @@ const AppRoutes = () => {
         {/* Rota pública */}
         <Route path="/login" element={<Login />} />
 
-        {/* Rota protegida (somente acessível se estiver autenticado) */}
+        {/* Páginas protegidas */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* add header */}
+          <Route element={<PageLayout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/reservas" element={<Reservas />} />
+            <Route path="/relatorios" element={<Relatorio />} />
+          </Route>
         </Route>
 
         {/* Redireciona qualquer rota inválida para login */}

@@ -1,0 +1,13 @@
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh; /* ✅ Agora ocupará toda a tela corretamente */
+    display: flex; /* ✅ Permite que os elementos filhos cresçam corretamente */
+    flex-direction: row; /* ✅ Faz os menus ficarem lado a lado */
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}

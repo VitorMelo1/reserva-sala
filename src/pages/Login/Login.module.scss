@@ -2,27 +2,24 @@
 @use "../../styles/variables.scss" as *;
 @use "../../styles/mixins.scss" as *;
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: $backgraund_color_Light;
-    padding: 20px;
-}
+
 .error {
     color: red;
     font-size: 18px;
     margin-top: 5px;
     font-weight: bold
 }
-.login_page{
+.login_page {
+    width: 100vw;
+    height: 100vh; /* Agora ocupa toda a altura da tela */
     @include flex-center;
-}
+    align-items: center;
+    background-color: #e9f3f5; /* Ajuste a cor se necessário */
+  }
 .login_container {
     @include flex-center(column, center, center);
     width: 100%;
-    max-width: 400px;
+    max-width: 350px;
     padding: 40px;
     background: $backgraund_color_Light;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -91,8 +88,8 @@ input:not(:placeholder-shown) + label {
 }
 
 button {
-    width: 100%;
-    padding: 12px;
+    
+    padding:25px 0 25px 0;
     font-size: 16px;
     border: none;
     background: $primary_color;
@@ -152,14 +149,14 @@ button {
 
     button {
         font-size: 15px;
-        padding: 11px;
+        padding:25px 0 25px 0;
     }
 }
 
 /* **Novidade: Layout expansível para telas grandes** */
 @media (min-width: 1200px) {
     .login_container {
-        max-width: 600px;
+        max-width: 500px;
         padding: 50px;
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     }
@@ -179,14 +176,14 @@ button {
 
     button {
         font-size: 18px;
-        padding: 14px;
+        padding:25px 0 25px 0;
     }
 }
 
 /* **Telas ultra grandes (4K)** */
 @media (min-width: 1600px) {
     .login_container {
-        max-width: 800px;
+        max-width: 650px;
         padding: 60px;
     }
 
@@ -205,6 +202,6 @@ button {
 
     button {
         font-size: 20px;
-        padding: 16px;
+        
     }
 }

@@ -23,6 +23,7 @@ const Login: React.FC = () => {
             // const response = await axios.post("https://seu-backend.com/api/login", data);
 
             const fakeToken = "fake-jwt-token-123"; // Token fictício para testar a navegação
+            localStorage.setItem("user_email", data.email); // Salva o email do usuário no localStorage
             
             // Pegando o token JWT da resposta
             // const { token } = response.data;
@@ -40,7 +41,7 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className={styles.login_page}>          
+        <div className={styles.login_page}> {/* Garante que ocupa a tela toda */}    
             <img
                 src={LogoUni}
                 alt="Unievangelica logo"
@@ -71,15 +72,15 @@ const Login: React.FC = () => {
                         <label htmlFor="password">Senha:</label>
                         {errors.password && <p className={styles.error}>{errors.password.message}</p>}
                     </div>
-
+    
                     {errorMessage && <p className={styles.error}>{errorMessage}</p>}
-
-                    <Button text="Logar" type="submit" variant="primary" />
-
+    
+                    <Button text="Logar" type="submit" variant="primary" padding="20px 20px" width="50%"/>
                 </form>
             </div>
         </div>
     );
+    
 };
 
 export default Login;

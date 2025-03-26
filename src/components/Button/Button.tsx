@@ -4,9 +4,11 @@ import styles from "./Button.module.scss";
 interface ButtonProps {
     text: string;
     onClick?: () => void; 
-    variant?: "primary" | "secondary";
+    variant?: "primary" | "secondary" | "Side-menu";
     disabled?: boolean;
     type?: "button" | "submit" | "reset"; 
+    padding?: string;
+    width?: string; 
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -14,7 +16,9 @@ const Button: React.FC<ButtonProps> = ({
     onClick,
     variant = "primary",
     disabled = false,
-    type = "button" 
+    type = "button",
+    padding,
+    width 
 }) => {
     return (
         <button
@@ -22,6 +26,7 @@ const Button: React.FC<ButtonProps> = ({
             onClick={onClick}
             disabled={disabled}
             type={type} 
+            style={{ ...(padding && { padding }), ...(width && { width }) }} 
         >
             {text}
         </button>
