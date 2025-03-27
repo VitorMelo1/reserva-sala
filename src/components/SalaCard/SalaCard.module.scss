@@ -1,43 +1,54 @@
+@use "../../styles/global.scss" as *;
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
 .salaCard {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s;
-    width: 200px;
-  
-    &:hover {
-      transform: scale(1.05);
-    }
-  
-    h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-    }
-  
-    p {
-      margin: 4px 0;
-      font-size: 14px;
-      color: #555;
-    }
-  
-    .status {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-weight: bold;
-    }
+  background-color: #f0f0f3;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow:
+    inset 6px 6px 12px rgba(0, 0, 0, 0.05),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.7);
+
+  transition: transform 0.2s;
+  width: 200px;
+
+  @include flex-center(column, center, center);
+
+  &:hover {
+    transform: scale(1.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow:
+      inset 4px 4px 8px rgba(0, 0, 0, 0.05),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.6);
   }
-  
-  .livre .status {
-    background-color: #4caf50;
-    color: white;
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
   }
-  
-  .ocupada .status {
-    background-color: #f44336;
-    color: white;
+
+  p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
   }
-  
+
+  .status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+}
+
+.livre .status {
+  background-color: $success_color;
+  color: $backgraund_color_Light;
+}
+
+.ocupada .status {
+  background-color: #f44336;
+  color: $backgraund_color_Light;
+}

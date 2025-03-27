@@ -4,67 +4,77 @@
 .Sidebar {
   height: 100vh;
   width: 60px;
-  position: sticky;
-  margin-right: 5px;
-  background-color: $primary_color;
-  transition: all 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  @include gradient-sidebar(to top, $primary_color, $secondary_color);
+
+  transition: transform 0.3s ease, width 0.3s ease;
 }
+
 .Sidebar.expanded {
-    width: 250px; // Sidebar expandido
+  width: 250px;
+  transition: width 0.3s;
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 0;
     transition: all 0.3s;
-    ul {
-        list-style: none; // Remove os pontos da lista
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: start;
-        padding: 0;
-        transition: all 0.3s;
-        width: 100%;
-      }
-      
-      li {
-        margin-bottom: 10px;
-        background-color: $primary_color;
-        transition: background-color 0.3s;
-        width: 100%;
-        margin-right: 5px;
-        
-        @include flex-center(row,start,center);
-        font-size: 20px;
-        color: $Color_text_light;
-        transition: all 0.3s;
-        img{
-          margin-left: 15px;
-        }
-      }
-      .DirectionContainer:hover {
-            
-        background-color: $secondary_color;
-      }
-      .FullLogo{
-        width: 100%;
-        height: auto;
-        margin-left: 0;
-        margin-top: 10px;
-        transition: all 0.3s;
-      }
-      .UserMenuContainer{
-        margin-left: 10px;
-        width: auto;
-        transition: all 0.3s;
-      }
-      span{
-        color: $Color_text_light;
-      }
+    width: 100%;
   }
+
+  li {
+    margin-bottom: 10px;
+
+    transition: all 0.3s;
+    width: 100%;
+    margin-right: 5px;
+
+    @include flex-center(row, start, center);
+    font-size: 20px;
+    color: $Color_text_light;
+    transition: all 0.3s;
+    img {
+      margin-left: 15px;
+    }
+  }
+  .DirectionContainer:hover {
+    background-color: $secondary_color;
+  }
+  .FullLogo {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    margin-top: 10px;
+    transition: all 0.3s;
+  }
+  .UserMenuContainer {
+    margin-left: 10px;
+    width: auto;
+    transition: all 0.3s;
+  }
+  span {
+    color: $Color_text_light;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  }
+  .Sidebar.expanded & span {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+}
 .SidebarContainer_Icons {
   height: 100vh;
   @include flex-center(column, space-between);
-  transition: all 0.3s;
+  transition: opacity 0.3s ease;
 }
 ul {
-  list-style: none; // Remove os pontos da lista
+  list-style: none;
   padding: 0;
   margin: 0;
   transition: all 0.3s;
@@ -72,37 +82,37 @@ ul {
 
 li {
   margin-bottom: 10px;
-  background-color: $primary_color;
-  transition: background-color 0.3s;
-  
+
+  transition: all 0.3s ease;
+
   @include flex-center;
   transition: all 0.3s;
 }
 .DirectionContainer {
-    cursor: pointer;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    transition: all 0.3s;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
   &:hover {
     background-color: $secondary_color;
   }
 }
 
 a {
-  text-decoration: none; // Remove o sublinhado padrão
-  color: inherit; // Mantém a cor do texto do pai
+  text-decoration: none;
+  color: inherit;
   display: flex;
   align-items: center;
-  gap: 8px; // Dá um espacinho entre o ícone e o texto
+  gap: 8px;
   font-weight: 500;
 }
 
 a:visited {
-  color: inherit; // Remove a cor azul de links visitados
+  color: inherit;
 }
 
 a:hover {
-  color: #555; // Muda a cor no hover (opcional)
+  color: #555;
 }
 img {
   width: 60px;
@@ -112,12 +122,10 @@ img {
   width: 40px;
   height: 40px;
 }
-.LogoContainer:hover {
-  background-color: none;
-}
+
 .ExitContainer {
   border-top: 1px solid $color_border_light;
 }
-.UserMenuContainer{
-    display: none;
+.UserMenuContainer {
+  display: none;
 }

@@ -16,5 +16,8 @@
   @mixin gradient-bg($angle: 90deg, $color1: #1f2b50, $color2: #3a4d79 , $color3: #1f2b50) {
     background: linear-gradient($angle, $color1, $color2, $color3);
   }
+  @mixin gradient-sidebar($angle: to top, $color1:$primary_color, $color2: $secondary_color) {
+    background: linear-gradient($angle, $color1, $color2);
+  }
   
   

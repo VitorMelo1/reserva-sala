@@ -12,7 +12,7 @@
   }
   .primary {
     background-color: $primary_color;
-    color: white;
+    color: $backgraund_color_Light;
   
     &:hover {
       background-color: $primary_color;
@@ -22,14 +22,14 @@
   
   .secondary {
     background-color: #6c757d;
-    color: white;
+    color: $backgraund_color_Light;
   
     &:hover {
       background-color: #5a6268;
     }
   }
   .Side-menu{
-    background-color: $primary_color;
+    background-color: transparent;
     font-size: 40px;
     border-radius: 0px;
     transition: background-color 0.3s;
@@ -39,6 +39,6 @@
   }
   /* Desativado */
   button:disabled {
-    background-color: #ccc;
+    background-color: $backgraund_color_Light;
     cursor: not-allowed;
   }

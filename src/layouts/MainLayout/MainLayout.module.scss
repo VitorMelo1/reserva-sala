@@ -1,13 +1,117 @@
-html, body, #root {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh; /* ✅ Agora ocupará toda a tela corretamente */
-    display: flex; /* ✅ Permite que os elementos filhos cresçam corretamente */
-    flex-direction: row; /* ✅ Faz os menus ficarem lado a lado */
+@use "../../styles/global.scss" as *;
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+.container {
+  display: flex;
+  transition: margin-left 0.3s ease;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
-.container{
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
+
+.content {
+  flex: 1;
+  transition: margin-left 0.3s ease;
+  margin-left: 90px; 
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.expanded {
+  margin-left: 20px; 
+}
+
+.dashboard_container {
+  position: relative;
+  margin-top: 12px;
+}
+
+.dashboard_content {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.filtros_container {
+  display: flex;
+  gap: 16px;
+  margin: 0 0 16px 0;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  select,
+  input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $primary_color;
+    }
+  }
+}
+
+.indicadores {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #333;
+
+  span {
+    padding: 4px 8px;
+  }
+
+  .separador {
+    font-weight: bold;
+    font-size: 18px;
+    color: #888;
+  }
+}
+
+.disponiveis {
+  color: $success_color;
+  font-size: 15px;
+}
+
+.ocupadas {
+  color: $alert_color;
+  font-size: 15px;
+}
+
+.input_capacidade {
+  width: 150px;
+}
+
+.input_nome {
+  width: 250px;
+}
+
+
+
+.visual_panel {
+  position: static;
+  gap: 24px;
+  min-width: 320px;
+  padding: 16px;
+  background: #f0f0f3;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  height: fit-content;
+  box-shadow: inset 6px 6px 12px rgba(0, 0, 0, 0.05),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.7);
+
+  h2 {
+    text-align: center;
+    margin-bottom: 12px;
+  }
 }

@@ -58,7 +58,7 @@ const Login: React.FC = () => {
                             placeholder=" " 
                             {...register("email", { required: "O email é obrigatório" })}
                         />
-                        <label htmlFor="email">Email:</label>
+                        <label className={styles.label_login} htmlFor="email">Email:</label>
                         {errors.email && <p className={styles.error}>{errors.email.message}</p>}
                     </div>
                     
@@ -69,7 +69,7 @@ const Login: React.FC = () => {
                             placeholder=" " 
                             {...register("password", { required: "A senha é obrigatória" })}
                         />
-                        <label htmlFor="password">Senha:</label>
+                        <label className={styles.label_login} htmlFor="password">Senha:</label>
                         {errors.password && <p className={styles.error}>{errors.password.message}</p>}
                     </div>
     

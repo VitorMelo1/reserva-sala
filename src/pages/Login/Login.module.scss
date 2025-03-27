@@ -63,14 +63,15 @@ input {
     }
 }
 
-label {
+.label_login {
     position: absolute;
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
     transition: 0.3s ease-in-out;
     color: #888;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 500;
     pointer-events: none;
 }
 
@@ -88,7 +89,7 @@ input:not(:placeholder-shown) + label {
 }
 
 button {
-    
+    width: 50%;
     padding:25px 0 25px 0;
     font-size: 16px;
     border: none;
