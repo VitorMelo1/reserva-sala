@@ -1,24 +1,20 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Login from "../pages/Login/Login"; 
+import Login from "../pages/Login/Login";
 import Dashboard from "../pages/Dashboard/Dashboard";
-import Relatorio from "../pages/Relatorios/Relatorios.tsx";
-import Reservas from "../pages/Reserva/Reserva.tsx";  
-import PageLayout from "../layouts/MainLayout/MainLayout"; 
-import ProtectedRoute from "./ProtectedRoute"; // Importando a proteção de rota
+import Relatorio from "../pages/Relatorios/Relatorios";
+import Reservas from "../pages/Reserva/Reserva";
+import PageLayout from "../layouts/MainLayout/MainLayout";
+import ProtectedRoute from "./ProtectedRoute";
+import NotFound from "../pages/NotFound/NotFound.tsx"; // aqui
 
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        {/* Redireciona a página inicial "/" para "/login" */}
         <Route path="/" element={<Navigate to="/login" />} />
-        
-        {/* Rota pública */}
         <Route path="/login" element={<Login />} />
 
-        {/* Páginas protegidas */}
         <Route element={<ProtectedRoute />}>
-          {/* add header */}
           <Route element={<PageLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/reservas" element={<Reservas />} />
@@ -26,8 +22,8 @@ const AppRoutes = () => {
           </Route>
         </Route>
 
-        {/* Redireciona qualquer rota inválida para login */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        {/* Rota 404 */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

@@ -89,8 +89,8 @@ Para rodar testes E2E com Cypress:
 ## 📌 Contato
 Caso tenha dúvidas ou sugestões, entre em contato:
 - **Nome:** Vitor Martins Melo
-- **Email:** seuemail@email.com
-- **LinkedIn:** [Seu Perfil](https://www.linkedin.com/in/seu-perfil)
+- **Email:** vitormmelo04@gmail.com
+- **LinkedIn:** [Vitor Martins Melo](www.linkedin.com/in/vitor-martins-melo-6272a6326)
 
 ---
 Feito com ❤️ por Vitor Martins Melo 🚀

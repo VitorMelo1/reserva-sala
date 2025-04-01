@@ -1,0 +1,170 @@
+.relatorios_container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+    min-height: 100vh;
+  }
+    
+  .date_filter {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: center;
+    background: #ffffff;
+    padding: 1.5rem 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  .date_filter_title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  .grup_chart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 80px;
+  }
+  
+  .chart_box {
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 320px;
+    max-width: 400px;
+  }
+  
+  .chart_box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(to bottom, #fefefe, #f3f3f3);
+  }
+  
+  .chart_box h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2a2a2a;
+    width: 100%;
+    text-align: left;
+    padding-left: 0.75rem;
+    border-left: 4px solid #007bff;
+  }
+  
+  .chart_wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .date_filter_group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .date_filter label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #333;
+    gap: 0.25rem;
+  }
+  
+  .date_filter input[type="date"] {
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    transition: 0.2s;
+    font-size: 0.95rem;
+    min-width: 170px;
+  }
+  
+  .date_filter input[type="date"]:focus {
+    outline: none;
+    border-color: #007bff;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  }
+  
+  .resumo_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .resumo_card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+    transition: 0.2s;
+  }
+  
+  .resumo_card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  }
+  
+  .resumo_card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .resumo_card span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  @media (max-width: 768px) {
+    .chart_wrapper {
+      max-width: 100%;
+    }
+  
+  
+    .chart_box {
+      padding: 1.2rem;
+    }
+  
+    .date_filter {
+      padding: 1rem;
+    }
+  
+    .date_filter_group {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .date_filter label {
+      width: 100%;
+    }
+  }
+  
