@@ -7,6 +7,7 @@ import { Button } from "../../components";
 import CampoFormulario from "../../components/campoFormulario/CampoFormulario";
 import { SelectSala, SugestaoSala, ListaReservas } from "../../components/ReservaUI";
 
+// Interface de tipagem para reservas
 interface Reserva {
   id: number;
   bloco: string;
@@ -20,6 +21,7 @@ interface Reserva {
   motivoCancelamento?: string;
 }
 
+// Função que verifica se dois intervalos de horários conflitam
 function horariosConflitam(horario1: string, horario2: string): boolean {
   const [inicio1, fim1] = horario1.split(" - ").map((h) => h.trim());
   const [inicio2, fim2] = horario2.split(" - ").map((h) => h.trim());
@@ -27,6 +29,7 @@ function horariosConflitam(horario1: string, horario2: string): boolean {
 }
 
 const Reservas: React.FC = () => {
+  // Estados para cada campo do formulário
   const [sala, setSala] = useState("");
   const [data, setData] = useState("");
   const [hora, setHora] = useState("");
@@ -40,6 +43,7 @@ const Reservas: React.FC = () => {
   const [abaSelecionada, setAbaSelecionada] = useState<"ativas" | "canceladas">("ativas");
   const [filtroSala, setFiltroSala] = useState("");
 
+  // Capacidade base por sala
   const capacidadeBase: { [sala: string]: number } = {
     A101: 40,
     A102: 35,
@@ -47,9 +51,9 @@ const Reservas: React.FC = () => {
     C301: 25,
   };
 
+  // Calcula capacidade disponível levando em conta reservas existentes no mesmo horário
   const calcularCapacidades = () => {
     const resultado: { [sala: string]: number } = { ...capacidadeBase };
-
     reservas.forEach((reserva) => {
       if (
         reserva.data === data &&
@@ -59,23 +63,21 @@ const Reservas: React.FC = () => {
         resultado[reserva.sala] -= reserva.alunos;
       }
     });
-
     return resultado;
   };
 
   const capacidades = calcularCapacidades();
 
+  // Salas filtradas dinamicamente
   const salasFiltradas = Object.entries(capacidades)
     .filter(([nome, capacidade]) => {
       const indisponivel = reservas.some((r) => {
         if (r.sala !== nome || r.status !== "ativa") return false;
         if (r.data !== data) return false;
-
         if (r.data === new Date().toISOString().split("T")[0]) {
           const fimReserva = new Date(`${r.data}T${r.hora.split(" - ")[1]}:00`);
           if (fimReserva < new Date()) return false;
         }
-
         return horariosConflitam(r.hora, `${hora} - ${horaFinal}`);
       });
 
@@ -87,9 +89,9 @@ const Reservas: React.FC = () => {
     })
     .sort((a, b) => a[1] - b[1]);
 
+  // Função que realiza a reserva (com validações)
   const handleReserva = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const hojeData = new Date().toISOString().split("T")[0];
     const agora = new Date();
     const horarioSelecionado = new Date(`${data}T${hora}:00`);
@@ -132,6 +134,7 @@ const Reservas: React.FC = () => {
       return;
     }
 
+    // Realiza a reserva
     const bloco = sala.charAt(0).toUpperCase();
     setLoading(true);
     setMensagem("");
@@ -163,6 +166,7 @@ const Reservas: React.FC = () => {
     }, 1500);
   };
 
+  // Cancela uma reserva (com motivo obrigatório)
   const handleCancelar = (id: number) => {
     const motivoCancelamento = prompt("Informe o motivo do cancelamento:");
     if (!motivoCancelamento || motivoCancelamento.trim() === "") {

@@ -1,97 +1,94 @@
 # 📌 Sistema de Reserva de Salas - UniEVANGÉLICA
 
 ## 📖 Sobre o Projeto
-Este sistema foi desenvolvido para facilitar o gerenciamento e a reserva de salas acadêmicas na **UniEVANGÉLICA**. Coordenadores podem visualizar, reservar e cancelar reservas de forma eficiente, garantindo melhor organização dos espaços disponíveis.
+Este sistema foi criado para otimizar o gerenciamento e a reserva de salas acadêmicas na **UniEVANGÉLICA**. Ele permite que coordenadores visualizem, filtrem, reservem e cancelem reservas de forma ágil, promovendo uma melhor organização dos espaços institucionais.
 
 ## 🚀 Tecnologias Utilizadas
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
+As principais tecnologias e ferramentas utilizadas neste projeto incluem:
 
-- **React** com **TypeScript**
-- **SCSS** para estilização
-- **React Router** para navegação entre páginas
-- **Axios** para consumo da API
-- **React Query** para gerenciamento de estado assíncrono
-- **Chart.js** para gráficos interativos
+- **React 19** com **TypeScript**
+- **SCSS** para estilização modular
+- **React Router Dom v7** para navegação entre páginas
+- **Axios** para consumo da API REST
+- **Chart.js + react-chartjs-2** para gráficos interativos
+- **React Hook Form** para gerenciamento de formulários
 
 ## ⚙️ Funcionalidades
-### 🔹 **Funcionalidades Principais**
-- Login com autenticação via API
-- Listagem de blocos e salas disponíveis
-- Filtros por bloco, capacidade e recursos
-- Indicação visual das salas livres e ocupadas
-- Reserva e cancelamento de salas
-- Notificações sobre reservas futuras e conflitos
+### 🔹 Funcionalidades Principais
+- Autenticação com token JWT
+- Login e logout com proteção de rotas
+- Listagem de salas por bloco e capacidade
+- Filtro por nome, capacidade mínima e bloco
+- Indicadores visuais de salas **livres** e **ocupadas**
+- Reserva de sala com validação de horário e capacidade
+- Cancelamento de reserva com justificativa obrigatória
+- Visualização gráfica do uso das salas (por data, horário e sala)
 
-### 🔹 **Funcionalidades Bônus**
-- Autenticação via JWT
-- Proteção de rotas para usuários autenticados
-- Gráficos sobre a utilização das salas
-- Testes automatizados com Jest e Cypress
+### 🔸 Funcionalidades Adicionais
+- Sugestão inteligente de sala com base na capacidade e disponibilidade
+- Exibição em tempo real de reservas filtradas por data
+- Modo responsivo para mobile e tablets
+- Cards estilizados com status e efeitos visuais
 
 ## 🛠️ Como Rodar o Projeto
-### 1️⃣ **Pré-requisitos**
-Certifique-se de ter instalado:
-- **Node.js** (versão 16 ou superior)
+### 1️⃣ Pré-requisitos
+Antes de começar, instale:
+- [Node.js](https://nodejs.org) (v16 ou superior)
 - **npm** ou **yarn**
 - **Git**
 
-### 2️⃣ **Clonar o Repositório**
+### 2️⃣ Clonar o Repositório
 ```bash
-  git clone https://github.com/seu-usuario/nome-do-repositorio.git
-  cd nome-do-repositorio
+git clone https://github.com/seu-usuario/reserva-sala.git
+cd reserva-sala
 ```
 
-### 3️⃣ **Instalar Dependências**
+### 3️⃣ Instalar as Dependências
 ```bash
-  npm install  # ou yarn install
+npm install # ou yarn install
 ```
 
-### 4️⃣ **Configurar as Variáveis de Ambiente**
-Crie um arquivo **.env** na raiz do projeto e adicione:
-```
+### 4️⃣ Configurar as Variáveis de Ambiente
+Crie um arquivo `.env` na raiz do projeto com:
+```env
 REACT_APP_API_URL=https://api.unievangelica.com/reservas
 ```
 
-### 5️⃣ **Rodar o Projeto**
+### 5️⃣ Rodar o Projeto
 ```bash
-  npm run dev  # ou yarn dev
+npm run dev # ou yarn dev
 ```
+O sistema será iniciado em: [http://localhost:3000](http://localhost:3000)
 
-O projeto estará rodando em: **http://localhost:3000**
-
-## 📌 Estrutura do Projeto
-```
+## 🧭 Estrutura do Projeto
+```bash
 /src
- ├── /components   # Componentes reutilizáveis
- ├── /pages        # Páginas do sistema
- ├── /services     # Comunicação com API
- ├── /hooks        # Hooks personalizados
- ├── /context      # Contexto global (autenticação, estado)
- ├── /styles       # Estilização global (SCSS)
- ├── App.tsx       # Configuração principal
- ├── routes.tsx    # Definição das rotas
- ├── index.tsx     # Entrada da aplicação
+ ├── components/     # Componentes reutilizáveis
+ ├── pages/          # Páginas principais (login, dashboard, relatórios...)
+ ├── services/       # Comunicação com a API
+ ├── hooks/          # Hooks personalizados
+ ├── context/        # Contexto global (autenticação, tema...)
+ ├── styles/         # Estilos globais e variáveis SCSS
+ ├── App.tsx         # Arquivo principal da aplicação
+ ├── routes.tsx      # Definição das rotas protegidas
+ └── main.tsx        # Entrada da aplicação (ReactDOM)
 ```
 
-## 🛠️ Testes
-### 🔹 Testes Unitários
-Para rodar os testes unitários com Jest:
+## 🧪 Testes
+### ✅ Testes Unitários (Jest)
 ```bash
-  npm test  # ou yarn test
+npm test # ou yarn test
 ```
 
-### 🔹 Testes End-to-End (E2E)
-Para rodar testes E2E com Cypress:
+### ✅ Testes End-to-End (Cypress)
 ```bash
-  npx cypress open
+npx cypress open
 ```
 
-## 📌 Contato
-Caso tenha dúvidas ou sugestões, entre em contato:
+## 👨‍💻 Autor
 - **Nome:** Vitor Martins Melo
 - **Email:** vitormmelo04@gmail.com
-- **LinkedIn:** [Vitor Martins Melo](www.linkedin.com/in/vitor-martins-melo-6272a6326)
+- **LinkedIn:** [linkedin.com/in/vitor-martins-melo-6272a6326](https://www.linkedin.com/in/vitor-martins-melo-6272a6326)
 
 ---
-Feito com ❤️ por Vitor Martins Melo 🚀
-
+Feito com 💙 e dedicação por Vitor Martins Melo 🚀

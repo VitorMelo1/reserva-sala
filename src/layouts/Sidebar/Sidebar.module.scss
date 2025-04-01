@@ -4,6 +4,7 @@
 .Sidebar {
   height: 100vh;
   width: 60px;
+  overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -42,9 +43,7 @@
       margin-left: 15px;
     }
   }
-  .DirectionContainer:hover {
-    background-color: $secondary_color;
-  }
+
   .FullLogo {
     width: 100%;
     height: auto;
@@ -90,11 +89,16 @@ li {
 }
 .DirectionContainer {
   cursor: pointer;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
+  margin: 15px 0;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
   &:hover {
-    background-color: $secondary_color;
+    background-color: lighten($secondary_color, 5%);
+    transform: scale(1.05);
   }
 }
 

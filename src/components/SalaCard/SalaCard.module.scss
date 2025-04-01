@@ -3,52 +3,52 @@
 @use "../../styles/mixins.scss" as *;
 
 .salaCard {
-  background-color: #f0f0f3;
-  border-radius: 16px;
-  padding: 16px;
+  background-color: $light-gray;
+  border-radius: $radius-lg;
+  padding: $padding-md;
   box-shadow:
     inset 6px 6px 12px rgba(0, 0, 0, 0.05),
     inset -6px -6px 12px rgba(255, 255, 255, 0.7);
 
-  transition: transform 0.2s;
+  transition: transform $transition-default;
   width: 200px;
 
   @include flex-center(column, center, center);
 
   &:hover {
     transform: scale(1.03);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform $transition-default, box-shadow $transition-default;
     box-shadow:
       inset 4px 4px 8px rgba(0, 0, 0, 0.05),
       inset -4px -4px 8px rgba(255, 255, 255, 0.6);
   }
 
   h3 {
-    margin: 0 0 8px;
-    font-size: 18px;
+    margin: 0 0 $gap-sm;
+    font-size: $font-md;
   }
 
   p {
     margin: 4px 0;
-    font-size: 14px;
-    color: #555;
+    font-size: $font-sm;
+    color: $text-muted;
   }
 
   .status {
     display: inline-block;
-    margin-top: 10px;
-    padding: 4px 8px;
-    border-radius: 4px;
+    margin-top: $gap-sm;
+    padding: 0.25rem 0.5rem;
+    border-radius: $radius-sm;
     font-weight: bold;
   }
 }
 
 .livre .status {
-  background-color: $success_color;
-  color: $backgraund_color_Light;
+  background-color: $success;
+  color: $light-bg;
 }
 
 .ocupada .status {
-  background-color: #f44336;
-  color: $backgraund_color_Light;
+  background-color: $danger;
+  color: $light-bg;
 }

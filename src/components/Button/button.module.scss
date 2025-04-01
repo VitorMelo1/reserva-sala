@@ -12,7 +12,7 @@
   }
   .primary {
     background-color: $primary_color;
-    color: $backgraund_color_Light;
+    color:$light-bg;
   
     &:hover {
       background-color: $primary_color;
@@ -22,7 +22,7 @@
   
   .secondary {
     background-color: #6c757d;
-    color: $backgraund_color_Light;
+    color:$light-bg;
   
     &:hover {
       background-color: #5a6268;
@@ -39,6 +39,6 @@
   }
   /* Desativado */
   button:disabled {
-    background-color: $backgraund_color_Light;
+    background-color:$light-bg;
     cursor: not-allowed;
   }

@@ -1,13 +1,12 @@
 .campo {
     display: flex;
     flex-direction: column;
-
-    margin-bottom: 0.5rem;
+    align-items: start;   
   }
   
   .campo label {
     font-weight: 600;
-    margin-bottom: 0.4rem;
+    text-align: start;
     color: #333;
   }
   

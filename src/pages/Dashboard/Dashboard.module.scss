@@ -9,14 +9,13 @@
 .dashboard_content {
   display: grid;
   grid-template-columns: 1fr 340px;
-  gap: 16px;
+  gap: $gap-md;
   align-items: flex-start;
 
-  @media (max-width: 1024px) {
+  @include respond(tablet) {
     grid-template-columns: 1fr;
   }
-  @media(max-width: 600px) {
-    grid-template-columns: 1fr;
+  @include respond(mobile) {
     display: flex;
     flex-direction: column-reverse;
   }
@@ -24,18 +23,18 @@
 
 .filtros_container {
   @include flex-center(row, center, center);
-  gap: 24px;
+  gap: $gap-lg;
   flex-wrap: wrap;
-  padding: 24px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: $padding-lg;
+  background-color: $light-bg;
+  border-radius: $radius-lg;
+  @include shadow(lg);
   width: fit-content;
   margin: 25px auto;
 
   label {
-    font-size: 14px;
-    color: #222;
+    font-size: $font-sm;
+    color: $dark-gray;
     margin-bottom: 6px;
     font-weight: 600;
   }
@@ -50,17 +49,17 @@
   select,
   input {
     padding: 10px 14px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 14px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
+    border-radius: $radius-md;
+    border: 1px solid $color_border_light;
+    font-size: $font-sm;
+    background-color: $text-light;
+    box-shadow: $shadow-light;
+    @include smooth-transition;
 
     &:focus {
       outline: none;
-      border-color: $primary_color;
-      background-color: #fff;
+      border-color: $primary-color;
+      background-color: $light-bg;
       box-shadow: 0 0 0 2px rgba(0, 128, 255, 0.2);
     }
   }
@@ -69,9 +68,9 @@
 .indicadores {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  color: #333;
+  gap: $gap-sm;
+  font-size: $font-sm;
+  color: $dark-gray;
 
   span {
     padding: 4px 8px;
@@ -79,41 +78,38 @@
 
   .separador {
     font-weight: bold;
-    font-size: 18px;
-    color: #888;
+    font-size: $font-md;
+    color: $mid-gray;
   }
 }
 
 .disponiveis {
-  color: $success_color;
-  font-size: 15px;
+  color: $success;
+  font-size: calc(#{$font-sm} + 0.0625rem); // 1px = 0.0625rem
 }
 
 .ocupadas {
-  color: $alert_color;
-  font-size: 15px;
+  color: $danger;
+  font-size: calc(#{$font-sm} + 0.0625rem);
 }
 
-.input_capacidade {
+.input_capacidade,
+.input_nome {
   width: 150px;
 
-  @media (max-width: 600px) {
+  @include respond(mobile) {
     width: 100%;
   }
 }
 
 .input_nome {
   width: 250px;
-
-  @media (max-width: 600px) {
-    width: 100%;
-  }
 }
 
 .cards_container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 15px;
+  gap: $gap-md;
 
   @media (min-width: 1400px) {
     grid-template-columns: repeat(5, 1fr);
@@ -131,19 +127,19 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: 500px) {
+  @include respond(mobile) {
     grid-template-columns: 1fr;
   }
 }
 
 .visual_panel {
   position: static;
-  gap: 24px;
+  gap: $gap-lg;
   min-width: 320px;
-  padding: 16px;
-  background: #f0f0f3;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
+  padding: $padding-md;
+  background: $light-gray;
+  border-top-left-radius: $radius-xl;
+  border-bottom-left-radius: $radius-xl;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   height: fit-content;
@@ -155,9 +151,9 @@
     margin-bottom: 12px;
   }
 
-  @media (max-width: 1024px) {
+  @include respond(tablet) {
     width: 100%;
     min-width: auto;
-    border-radius: 20px;
+    border-radius: $radius-lg;
   }
 }

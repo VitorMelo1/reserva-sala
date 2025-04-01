@@ -1,23 +1,63 @@
 @use "./variables" as *;
-@mixin flex-center($flex-direction: column, $justify-content: center ,$align-items: center) {
-    display: flex;
-    justify-content: $justify-content;
-    align-items: $align-items;
-    flex-direction: $flex-direction;
+
+// Centralização flexível
+@mixin flex-center($flex-direction: column, $justify-content: center, $align-items: center) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+}
+
+// Borda padrão com padding
+@mixin border($padding: 10px, $border-radius: 5px) {
+  border: 1px solid $color_border;
+  padding: $padding;
+  border-radius: $border-radius;
+}
+
+// Gradiente genérico
+@mixin gradient-bg($angle: 90deg, $color1: #1f2b50, $color2: #3a4d79) {
+  background: linear-gradient($angle, $color1, $color2);
+}
+
+// Gradiente com 3 cores
+@mixin gradient-bg-3($angle: 90deg, $color1: #1f2b50, $color2: #3a4d79, $color3: #1f2b50) {
+  background: linear-gradient($angle, $color1, $color2, $color3);
+}
+
+// Gradiente para sidebar com variáveis
+@mixin gradient-sidebar($angle: to top, $color1: $primary-color, $color2: $secondary-color) {
+  background: linear-gradient($angle, $color1, $color2);
+}
+
+// Sombra padrão
+@mixin shadow($level: md) {
+  @if $level == light {
+    box-shadow: $shadow-light;
+  } @else if $level == md {
+    box-shadow: $shadow-md;
+  } @else if $level == lg {
+    box-shadow: $shadow-lg;
   }
-@mixin border($padding: 10px,$border-radius: 5px) {
-    border: 1px solid $color_border;
-    padding: $padding;
-    border-radius: $border-radius;
+}
+
+// Texto truncado (ellipsis)
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Transição suave
+@mixin smooth-transition($properties: all, $duration: 0.3s, $easing: ease) {
+  transition: $properties $duration $easing;
+}
+
+// Responsivo
+@mixin respond($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: 768px) { @content; }
+  } @else if $breakpoint == tablet {
+    @media (max-width: 1024px) { @content; }
   }
-  @mixin gradient-bg($angle: 90deg, $color1: #1f2b50, $color2: #3a4d79) {
-    background: linear-gradient($angle, $color1, $color2);
-  }
-  @mixin gradient-bg($angle: 90deg, $color1: #1f2b50, $color2: #3a4d79 , $color3: #1f2b50) {
-    background: linear-gradient($angle, $color1, $color2, $color3);
-  }
-  @mixin gradient-sidebar($angle: to top, $color1:$primary_color, $color2: $secondary_color) {
-    background: linear-gradient($angle, $color1, $color2);
-  }
-  
-  
+}
