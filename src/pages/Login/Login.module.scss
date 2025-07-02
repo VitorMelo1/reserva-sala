@@ -99,7 +99,7 @@ button {
   @include smooth-transition;
 
   &:hover {
-    background: darken($primary-color, 10%);
+    background: color.adjust($primary-color, $lightness: -10%);
   }
 }
 

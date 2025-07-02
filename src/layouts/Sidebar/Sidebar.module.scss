@@ -97,7 +97,7 @@ li {
   transition: background-color 0.3s ease, transform 0.3s ease;
 
   &:hover {
-    background-color: lighten($secondary_color, 5%);
+    background-color: color.adjust($secondary_color, $lightness: 5%);
     transform: scale(1.05);
   }
 }
