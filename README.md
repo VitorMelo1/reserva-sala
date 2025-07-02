@@ -74,17 +74,6 @@ O sistema será iniciado em: [http://localhost:3000](http://localhost:3000)
  └── main.tsx        # Entrada da aplicação (ReactDOM)
 ```
 
-## 🧪 Testes
-### ✅ Testes Unitários (Jest)
-```bash
-npm test # ou yarn test
-```
-
-### ✅ Testes End-to-End (Cypress)
-```bash
-npx cypress open
-```
-
 ## 👨‍💻 Autor
 - **Nome:** Vitor Martins Melo
 - **Email:** vitormmelo04@gmail.com
