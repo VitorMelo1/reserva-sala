@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Button.module.scss"; // Importação dos estilos SCSS usando CSS Modules
+import styles from "./button.module.scss"; // Importação dos estilos SCSS usando CSS Modules
 
 // Interface definindo as props aceitas pelo componente
 interface ButtonProps {
