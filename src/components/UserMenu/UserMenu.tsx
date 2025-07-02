@@ -5,11 +5,7 @@ const UserMenu = () => {
 
   const userEmail = localStorage.getItem("user_email"); 
 
-  const handleLogout = () => {
-    localStorage.removeItem("jwt_token");
-    localStorage.removeItem("user_email");
-    window.location.href = "/login";
-  };
+
 
   return (
     <div className="relative">

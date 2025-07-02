@@ -30,7 +30,6 @@ const Dashboard: React.FC = () => {
         .sort((a, b) => Number(a.ocupada) - Number(b.ocupada)); // Ordena: livres primeiro
 
     // Estatísticas rápidas
-    const totalSalas = salasFiltradas.length;
     const salasDisponiveis = salasFiltradas.filter(s => !s.ocupada).length;
     const salasOcupadas = salasFiltradas.filter(s => s.ocupada).length;
 

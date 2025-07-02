@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import styles from "./Login.module.scss";
 import { Button } from "../../components/Button";
 import LogoUni from "../../assets/LogoUni.png";
-import { SassColor } from "sass";
 
 type FormData = {
     email: string;
