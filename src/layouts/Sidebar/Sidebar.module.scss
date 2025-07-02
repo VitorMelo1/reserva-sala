@@ -1,6 +1,7 @@
 @use "../../styles/global.scss" as *;
 @use "../../styles/variables.scss" as *;
 @use "../../styles/mixins.scss" as *;
+@use "sass:color";
 .Sidebar {
   height: 100vh;
   width: 60px;
